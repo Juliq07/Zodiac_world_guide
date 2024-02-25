@@ -1,0 +1,164 @@
+def zodiac_sigh(birth_day, birth_month):
+    if birth_month == "01" or birth_month == "january":
+        sign = "Capricorn" if (birth_day < 20) else "Aquarius"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "february" or birth_month == "02":
+        sign = "Aquarius" if (birth_day < 19) else "Pisces"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "march" or birth_month == "03":
+        sign = "Pisces" if (birth_day < 21) else "Aries"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "april" or birth_month == "04":
+        sign = "Aries" if (birth_day < 20) else "Taurus"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "may" or birth_month == "05":
+        sign = "Taurus" if (birth_day < 21) else "Gemini"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "june" or birth_month == "06":
+        sign = "Gemini" if (birth_day < 21) else "Cancer"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "july" or birth_month == "07":
+        sign = "Cancer" if (birth_day < 22) else "Leo"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "august" or birth_month == "08":
+        sign = "Leo" if (birth_day < 23) else "Virgo"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "september" or birth_month == "09":
+        sign = "Virgo" if (birth_day < 23) else "Libra"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "october" or birth_month == "10":
+        sign = "Libra" if (birth_day < 23) else "Scorpio"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "november" or birth_month == "11":
+        sign = "Scorpio" if (birth_day < 22) else "Sagittarius"
+        print(f"Your zodiac sign is {sign}")
+    elif birth_month == "december" or birth_month == "12":
+        sign = "Sagittarius" if (birth_day < 22) else "Capricorn"
+        print(f"Your zodiac sign is {sign}")
+
+
+def compatibility():
+    your_sign = input("What's your zodiac sign? ")
+    second_sign = input("What's his/her zodiac sign? ")
+    if your_sign == "aquarius" and second_sign == "taurus" or second_sign == "cancer" or second_sign == "virgo" or second_sign == "scorpio":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "pisces" and second_sign == "capicorn":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "aries" and second_sign == "aries" or second_sign == "taurus" or second_sign == "cancer" or second_sign == "capicorn":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "taurus" and second_sign == "aries" or second_sign == "gemini" or second_sign == "scorpio" or second_sign == "aquarius":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "gemini" and second_sign == "taurus" or second_sign == "scorpio" or second_sign == "capicorn":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "cancer" and second_sign == "aquarius" or second_sign == "aries" or second_sign == "sagittarius":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "leo" and second_sign == "virgo":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "virgo" and second_sign == "aquarius" or second_sign == "leo":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "libra" and second_sign == "capicorn":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "scorpio" and second_sign == "aquarius" or second_sign == "taurus" or second_sign == "gemini" or second_sign == "sagittarius":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "sagittarius" and second_sign == "cancer" or second_sign == "scorpio" or second_sign == "capicorn":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    elif your_sign == "capicorn" and second_sign == "pisces" or second_sign == "aries" or second_sign == "gemini" or second_sign == "libra" or second_sign == "sagittarius":
+        print(f"{your_sign} and {second_sign} are not compatible ")
+    else:
+        print(f"{your_sign} and {second_sign} are compatible ")
+
+
+def menu():
+    print('''Menu:
+    Write these commands to:
+
+    zodiac - See your zodiac sigh
+    com - To see who can be with each other
+    exit - To quit from program
+''')
+
+
+print(f'''Welcome to "Zodiac world guide"! What's your name?''')
+name = input("Name: ")
+print(f'''
+Great name {name}!
+Lets start exploring this astral world!
+''')
+
+menu()
+command = input(">")
+while True:
+    if command == "menu":
+        menu()
+        command = input(">")
+    elif command == "zodiac":
+        birth_month = input("Please enter your month of birth (for example 03 or march): ")
+        birth_day = int(input("Enter your day of birth (one number): "))
+        zodiac_sigh(birth_day, birth_month)
+        step = input("Return(menu) or continue(c)? ")
+        if step == "menu":
+            menu()
+            command = input(">")
+        elif step == "c":
+            command == "zodiac"
+        else:
+            print("Please, choose betwen 'menu' and 'c':")
+            last_chance = input(">")
+            if last_chance == "menu":
+                menu()
+                command = input(">")
+            elif last_chance == "c":
+                command == "zodiac"
+            else:
+                print('''
+                Thats it
+                I'm done!''')
+                break
+    elif command == "com":
+        compatibility()
+        step = input("Return(menu) or continue(c)? ")
+        if step == "menu":
+            menu()
+            command = input(">")
+        elif step == "c":
+            command == "com"
+        else:
+            print("Please, choose betwen 'menu' and 'c':")
+            last_chance = input(">")
+            if last_chance == "menu":
+                menu()
+                command = input(">")
+            elif last_chance == "c":
+                command == "com"
+            else:
+                print('''
+                Thats it
+                I'm done!''')
+                break
+    elif command == "exit":
+        print('''
+        Are you sure you want to quit?
+        ''')
+        sure = input("'yes' or 'no': ")
+        if sure == "yes":
+            print(f'''
+            Okay then...
+            See you later {name}''')
+            break
+        elif sure == "no":
+            print('''
+            Upff. You got me 
+            ''')
+            menu()
+        else:
+            print("Umm, sorry, I don't understand that commend...")
+            sure = input(">")
+    else:
+        print("Umm, sorry, I don't understand that commend...")
+        command = input(">")
+        if command != "exit" and command != "menu" and command != "zodiac" and command != "com":
+            print(f"Okay {name}, one last chance")
+            command = input(">")
+            if command != "exit" and command != "menu" and command != "zodiac" and command != "com":
+                print(f"As you wish {name}. See you soon!")
+                break
